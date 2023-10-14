@@ -8,6 +8,7 @@ export class App extends Component {
     contacts: [],
     filter: '',
   };
+  //при монтажі зчитуємо сонтастс з локалстораже
   componentDidMount() {
     const conacts = localStorage.getItem('contacts');
     if (conacts) {
@@ -16,6 +17,7 @@ export class App extends Component {
       });
     }
   }
+  //при демонтажі записуємо сонтастс з локалстораже
   componentDidUpdate(perProps, perState) {
     if (perState.contacts !== this.state.contacts) {
       localStorage.setItem('contacts', JSON.stringify(this.state.contacts));

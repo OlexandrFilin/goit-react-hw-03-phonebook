@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const FormUser = styled.form`
   border: 2px solid black;
-  width: 200px;
+  width: 220px;
   margin-left: 20px;
   padding: 10px;
 `;

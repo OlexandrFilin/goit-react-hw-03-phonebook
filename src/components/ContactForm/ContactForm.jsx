@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import css from 'components/ContactForm/ContactForm.module.css';
 import { FormUser, LabelForm, InputUser } from './ContactForm.styled';
 import { nanoid } from 'nanoid';
 
@@ -33,14 +32,13 @@ export default class ContactForm extends Component {
   };
 
   render() {
-    //console.log(this.props);
     const { submitForm } = this;
     const { name, number } = this.state;
     return (
       <FormUser onSubmit={submitForm}>
         <LabelForm>
           Name
-          <input
+          <InputUser
             type="text"
             value={name}
             name="name"

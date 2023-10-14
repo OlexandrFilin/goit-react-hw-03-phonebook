@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import css from 'components/ContactForm/ContactForm.module.css';
+// import css from 'components/ContactForm/ContactForm.module.css';
+import { FormUser, LabelForm, InputUser } from './ContactForm.styled';
 import { nanoid } from 'nanoid';
 
 export default class ContactForm extends Component {
@@ -7,13 +8,7 @@ export default class ContactForm extends Component {
     name: '',
     number: '',
   };
-  // onChange = event => {
-  //   console.log(
-  //     'this.props.handelInputChange:>> ',
-  //     this.props.handelInputChange
-  //   );
-  //   return this.props.handelInputChange(event).call(this);
-  // };
+
   onChange = e => {
     const { name, value } = e.currentTarget;
     this.setState({
@@ -42,11 +37,10 @@ export default class ContactForm extends Component {
     const { submitForm } = this;
     const { name, number } = this.state;
     return (
-      <form className={css.frmUser} onSubmit={submitForm}>
-        <label className={css.labelFrm}>
+      <FormUser onSubmit={submitForm}>
+        <LabelForm>
           Name
           <input
-            className={css.inpUser}
             type="text"
             value={name}
             name="name"
@@ -55,23 +49,20 @@ export default class ContactForm extends Component {
             required
             pattern="^[a-zA-Zа-яА-Я]+(([' \\-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           />
-        </label>
-        <label className={css.labelFrm}>
+        </LabelForm>
+        <LabelForm>
           Number
-          <input
+          <InputUser
             type="tel"
             name="number"
             value={number}
-            className={css.inpUser}
             onChange={this.onChange}
             placeholder="Phone number"
             required
           />
-        </label>
-        <button type="submit" className={css.btnSubmit}>
-          Add contact
-        </button>
-      </form>
+        </LabelForm>
+        <button type="submit">Add contact</button>
+      </FormUser>
     );
   }
 }

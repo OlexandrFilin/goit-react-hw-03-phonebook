@@ -1,22 +1,22 @@
-import css from 'components/ContactList/ContactList.module.css';
+import {
+  ContactListStyle,
+  BtnDelCont,
+  ItemContLst,
+} from './ContactList.styled';
 
 export const ContactList = ({ contacts, onRemoveContact }) => {
   return (
-    <ul className={css.contactList}>
+    <ContactListStyle>
       {contacts.map(el => {
         return (
-          <li key={el.id} className={css.itemContLst}>
-            <button
-              type="button"
-              className={css.btnDelCont}
-              onClick={() => onRemoveContact(el.id)}
-            >
+          <ItemContLst key={el.id}>
+            <BtnDelCont type="button" onClick={() => onRemoveContact(el.id)}>
               del
-            </button>
+            </BtnDelCont>
             {el.name} : {el.number}
-          </li>
+          </ItemContLst>
         );
       })}
-    </ul>
+    </ContactListStyle>
   );
 };
